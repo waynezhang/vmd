@@ -22,7 +22,6 @@ window.addEventListener('keydown', function (ev) {
 })
 
 // menu
-var Menu = remote.require('menu');
 var template = [
   {
     label: 'vmd',
@@ -35,15 +34,15 @@ var template = [
       { label: 'Hide Others', accelerator: 'Command+Shift+H', selector: 'hideOtherApplications:' },
       { label: 'Show All', selector: 'unhideAllApplications:' },
       { type: 'separator' },
-      { label: 'Quit', accelerator: 'Command+Q', click: function() { remote.require('app').quit(); } },
+      { label: 'Quit', accelerator: 'Command+Q', click: function () { remote.require('app').quit() } }
     ]
   },
   { label: 'File',
     submenu: [
-      { label: 'Print', accelerator: 'Command+P', click: function() { window.print(); } },
+      { label: 'Print', accelerator: 'Command+P', click: function () { window.print() } }
     ]
   }
-];
+]
 
-menu = Menu.buildFromTemplate(template);
-Menu.setApplicationMenu(menu);
+var Menu = remote.require('menu')
+Menu.setApplicationMenu(Menu.buildFromTemplate(template))
